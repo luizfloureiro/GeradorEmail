@@ -1,0 +1,31 @@
+<h2>Dados</h2>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Matrícula</th>
+    <th>Telefone</th>
+    <th>E-mail</th>
+    <th>UFFMail</th>
+  </tr>
+
+  <% if @aluno %>
+    <tr>
+      <td><%= @aluno.nome %></td>
+      <td><%= @aluno.matricula %></td>
+      <td><%= @aluno.telefone %></td>
+      <td><%= @aluno.email %></td>
+      <td><%= @aluno.uffmail %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<br>
+
+<% if @aluno %>
+  <% unless @aluno.uffmail %>
+    Você não possui um UFFMail. Deseja <%= link_to 'criar um agora', edit_usuario_aluno_path(current_user.id, @aluno), id: 'btn_uffmail' %>?<br>
+  <% end %>
+<% end %>
+
+<br><br>
+<%= link_to 'Início', root_path %> | <%= link_to 'Voltar', usuario_path(current_user.id) %>

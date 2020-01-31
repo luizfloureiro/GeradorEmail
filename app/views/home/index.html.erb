@@ -1,0 +1,7 @@
+<h2>Koe</h2>
+
+<% if current_user %>
+  <%= link_to 'Minha conta', usuario_path(current_user.id) %>
+<% else %>
+  <%= link_to 'Sign Up', signup_path %> | <%= link_to 'Login', login_path %>
+<% end %>

@@ -1,0 +1,19 @@
+<h2>Desafio UFFMail</h2>
+
+<% if current_user %>
+  <% if current_user.username.starts_with?('admin') %>
+    <%= link_to 'Manejar usuários', usuarios_path %>
+  <% else %>
+    <% if @aluno %>
+      <% unless @aluno.uffmail %>
+        Você não possui um UFFMail.<br>
+      <% end %>
+      <%= link_to 'Dados', usuario_alunos_path(session[:user_id]) %>
+    <% else %>
+      <%= link_to 'Cadastrar aluno', new_usuario_aluno_path(session[:user_id]) %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to 'Sign Up', signup_path %> ou
+  <%= link_to 'Log In', login_path %>
+<% end %>

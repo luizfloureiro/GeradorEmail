@@ -1,0 +1,18 @@
+<% if current_user %>
+  <% if current_user.username.starts_with?('admin') %>
+    <%= link_to 'Manejar usuários', usuarios_path %>
+  <% else %>
+    <% if @aluno %>
+      <p>Você já realizou o cadastro dos seus dados!</p>
+      <% unless @aluno.uffmail %>
+        <p>Você não possui um UFFMail.</p>
+      <% end %>
+      <%= link_to 'Início', root_path %> |
+      <%= link_to 'Dados', usuario_alunos_path(current_user.id) %>
+    <% else %>
+      <p>Você ainda não realizou o cadastro dos seus dados!</p>
+      <%= link_to 'Início', root_path %> |
+      <%= link_to 'Cadastrar aluno', new_usuario_aluno_path(current_user.id) %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,35 @@
+<h2>Cadastro</h2>
+
+<%= form_with model: @usuario, local:true do |form| %>
+
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        Ocorreram <%= pluralize(@usuario.errors.count, "erro") %>:
+      </h3>
+      <ul>
+        <% @usuario.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+  </p>
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>

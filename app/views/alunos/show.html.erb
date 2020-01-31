@@ -1,0 +1,25 @@
+<p>
+	<strong><%= @aluno.nome %></strong>
+</p>
+
+<p>
+	Matrícula:
+	<%= @aluno.matricula %>
+</p>
+
+<p>
+	Telefone: 
+	<%= @aluno.telefone %>
+</p>
+
+<p>
+	E-mail: 
+	<%= @aluno.email %>
+</p>
+
+<p>
+  UFFMail:
+	<%= @aluno.uffmail %>
+</p>
+
+<%= link_to 'Voltar', usuario_alunos_path(current_user.id) %>

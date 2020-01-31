@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0px;
+}
+/*
+.header {
+  margin: 0;
+}
+*/
+.userbar {
+  background-color: #2E2F30;
+  color: #e8e8e8;
+  font-family: Sans-Serif;
+  font-size: 20px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+#user_text {
+  float: left;
+  margin-top: 0px;
+}
+
+#user_text p {
+  position: absolute;
+  top: -10px;
+}
+
+.userbar #user_name {
+  color: #ffffff;
+  font-weight: bold;
+}
+.userbar .logout_button {
+  float: right;
+  height: 100%;
+}
+
+.userbar a, .userbar a:link, .userbar a:visited {
+  background-color: #8928a2;
+  color: white;
+  padding: 5px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.userbar a:hover, .userbar a:active {
+  background-color: #611d73;
+}

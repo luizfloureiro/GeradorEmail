@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Iduff</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if content_for?(:head) %>
+     <%= yield(:head) %>
+    <% end %>
+  </head>
+
+  <body>
+  <% if current_user %>
+    <%= render partial: "shared/userbar" %>
+  <% end %>
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+  <%= yield %>
+  </body>
+</html>

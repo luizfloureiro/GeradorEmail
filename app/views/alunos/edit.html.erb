@@ -1,0 +1,15 @@
+<h2>UFFMail</h2>
+
+<% if @aluno %>
+  <% unless @aluno.uffmail %>
+    <h4>Olá, <%= @aluno.nome %></h4>
+    <div id="form_uffmail">
+      <%= form_for [@usuario, @aluno] do |form| %>
+        <%= select_tag(:uffmail, options_for_select( gera_opcoes(@aluno.nome) ), include_blank: "Selecione um UFFMail.") %>
+        <%= form.submit %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Voltar', usuario_aluno_path %>

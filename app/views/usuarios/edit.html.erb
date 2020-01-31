@@ -1,0 +1,26 @@
+<h2>Editar aluno</h2>
+
+<%= form_with(model: @usuario, local: true) do |form| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        Ocorreram <%= pluralize(@usuario.errors.count, "error") %>:
+      </h3>
+      <ul>
+        <% @usuario.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username%>
+  </p>
+  <p>
+    <%= form.submit "Alterar" %>
+  </p>
+<% end %>
+
+<%= link_to "Voltar", usuarios_path %>

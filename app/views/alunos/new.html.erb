@@ -1,0 +1,35 @@
+<h1>Novo aluno</h1>
+
+<% if @aluno.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+    <ul>
+      <% @aluno.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [@usuario, @aluno] do |form| %>
+
+  <%= form.label :nome %><br>
+  <%= form.text_field :nome %><br>
+
+  <%= form.label :matricula %><br>
+  <%= form.text_field :matricula %><br>
+
+  <%= form.label :telefone %><br>
+  <%= form.text_field :telefone %><br>
+
+  <%= form.label :email %><br>
+  <%= form.text_field :email %><br>
+
+	<p>
+		<%= form.submit %>
+	</p>
+
+<% end %>
+
+<%= link_to 'Início', root_path %> |
+<%= link_to 'Alunos', usuario_alunos_path %>

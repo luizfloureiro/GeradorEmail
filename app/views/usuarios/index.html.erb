@@ -1,0 +1,18 @@
+<h2>Usuários</h2>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Password</th>
+    <th>asdf</th>
+  </tr>
+
+  <% @usuarios.each do |usuario| %>
+    <tr>
+      <td><%= usuario.username %></td>
+      <td><%= usuario.password_digest %></td>
+      <td>¯\_(ツ)_/¯</td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Início', root_path %>
