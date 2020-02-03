@@ -1,17 +1,22 @@
 class UffMailGenerator
-  attr_accessor :opcoes
+  SUFIXO ||= '@uffmail.com'
+
+  attr_reader :opcoes
 
   def initialize(nome)
-    @nome = nome.downcase
-    self.opcoes = []
+    @nome = nome.to_s.downcase
+    @opcoes = []
+    self
+  end
 
-    sufixo = '@uffmail.com'
+
+  def gerar
     nomes = @nome.split(' ')
 
-    opcoes.push(nomes[0] + nomes[-1] + sufixo)
-    opcoes.push(nomes[0] + '.' + nomes[-1] + sufixo)
-    opcoes.push(nomes[0] + '_' + nomes[-1] + sufixo)
-    opcoes.push(nomes[0].first + '.' + nomes[-1] + sufixo)
-    opcoes.push(nomes[0] + '.' + nomes[-1].first + sufixo)
+    opcoes.push(nomes[0] + nomes[-1] + SUFIXO)
+    opcoes.push(nomes[0] + '.' + nomes[-1] + SUFIXO)
+    opcoes.push(nomes[0] + '_' + nomes[-1] + SUFIXO)
+    opcoes.push(nomes[0].first + '.' + nomes[-1] + SUFIXO)
+    opcoes.push(nomes[0] + '.' + nomes[-1].first + SUFIXO)
   end
 end
