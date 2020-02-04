@@ -4,9 +4,6 @@ class AlunosController < ApplicationController
 		if current_user
 			@usuario = Usuario.find(current_user.id)
 			@aluno = Aluno.find_by(usuario_id: current_user.id)
-			#@alunos = Aluno.all
-
-
 		end
 	end
 
@@ -29,7 +26,6 @@ class AlunosController < ApplicationController
 	def create
 		@usuario = Usuario.find(params[:usuario_id])
 		@aluno = current_user.build_aluno(aluno_params)
-		#debugger
 		if @aluno.save
 			flash[:success] = "Dados salvos com sucesso."
 			redirect_to usuario_path(current_user.id)
@@ -42,7 +38,6 @@ class AlunosController < ApplicationController
   def update
 		@usuario = Usuario.find(params[:usuario_id])
     @aluno = Aluno.find_by(usuario_id: current_user.id)
-		#debugger
     if @aluno.update(aluno_update_params)
 			flash[:success] = "Alterações salvas com sucesso!"
       redirect_to usuario_aluno_path(@aluno.usuario_id, @aluno)
